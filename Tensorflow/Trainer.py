@@ -1,10 +1,14 @@
+def train_part34(model_init_fn, optimizer_init_fn, num_epochs=1, is_training=False, device = '/cpu:0'):
+    
+    import tensorflow as tf
+    import numpy as np
+    from data_utils import load_cifar10
+    X_train, y_train, X_val, y_val, X_test, y_test = load_cifar10()
+    train_dset = Dataset(X_train, y_train, batch_size=64, shuffle=True)
+    val_dset = Dataset(X_val, y_val, batch_size=64, shuffle=False)
+    test_dset = Dataset(X_test, y_test, batch_size=64)
+    
 
-#import tensorflow as tf
-
-def train_part34(model_init_fn, optimizer_init_fn, num_epochs=1, is_training=False):
-    print(tf.__version__)
-   
-    print(tf.__version__)
     with tf.device(device):
 
         # Compute the loss like we did in Part II
@@ -13,7 +17,7 @@ def train_part34(model_init_fn, optimizer_init_fn, num_epochs=1, is_training=Fal
         model = model_init_fn()
         optimizer = optimizer_init_fn()
         
-        #train_loss = tf.keras.metrics.Mean(name='train_loss')
+        train_loss = tf.keras.metrics.Mean(name='train_loss')
         train_accuracy = tf.keras.metrics.SparseCategoricalAccuracy(name='train_accuracy')
     
         val_loss = tf.keras.metrics.Mean(name='val_loss')

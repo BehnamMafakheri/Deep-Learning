@@ -1,11 +1,12 @@
 def load_cifar10(num_training=49000, num_validation=1000, num_test=10000):
-    print(tf.__version__)
-    print("HI")
+    import numpy as np
+    import tensorflow as tf
     """
     Fetch the CIFAR-10 dataset from the web and perform preprocessing to prepare
     it for the two-layer neural net classifier.
     """
     # Load the raw CIFAR-10 dataset and use appropriate data types and shapes
+
     cifar10 = tf.keras.datasets.cifar10.load_data()
     (X_train, y_train), (X_test, y_test) = cifar10
     X_train = np.asarray(X_train, dtype=np.float32)
@@ -41,4 +42,5 @@ def load_cifar10(num_training=49000, num_validation=1000, num_test=10000):
 #   ...replacing paths as necessary.
 
 # Invoke the above function to get our data.
+
 
