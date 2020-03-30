@@ -28,7 +28,7 @@ class MyFirstNet(tf.keras.Model):
         self.avg_pool3 = tf.keras.layers.AveragePooling2D(pool_size = [5, 5], strides = [1, 1])
         
         self.flatten = tf.keras.layers.Flatten()
-        self.fc4 = tf.keras.layers.Dense(100, kernel_initializer=initializer)
+        self.fc4 = tf.keras.layers.Dense(50, kernel_initializer=initializer)
         self.fc5 = tf.keras.layers.Dense(50, kernel_initializer=initializer)
         self.fc6 = tf.keras.layers.Dense(num_classes, activation='softmax', kernel_initializer=initializer)
         

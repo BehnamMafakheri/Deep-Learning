@@ -38,6 +38,7 @@ def train_part34(model_init_fn, optimizer_init_fn, num_epochs=1, is_training=Fal
                     
                     # Use the model function to build the forward pass.
                     scores = model(x_np, training=is_training)
+                    #print(model.summary())
                     loss = loss_fn(y_np, scores)
       
                     gradients = tape.gradient(loss, model.trainable_variables)
